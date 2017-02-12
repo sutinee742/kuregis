@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Kasetsart University</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:300,400,700" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Prompt:300,400,500,600" />
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+
+    <script>
+      $( document ).ready(function() {
+        console.log( "document loaded" );
+
+
+      });
+
+
+    </script>
+
+    <style>
+      body{
+        display: flex;
+        min-height: 100vh;
+        flex-direction: column;
+        font-family: 'Prompt' !important;
+      }
+
+      main {
+        flex: 1 0 auto;
+      }
+
+      h1, h2, h3, h4, h5, h6, .prompt-font{
+        font-family: 'Prompt' !important;
+      }
+
+      .nunito-font{
+        font-family: 'Nunito' !important;
+      }
+
+      .prompt-font{
+        font-family: 'Prompt' !important;
+      }
+
+      .angs-navbar{
+        background-color: rgba(103, 58, 183, 0.8);
+      }
+
+      .angs-title-bar{
+        margin-top: 10px;
+        margin-bottom: 10px;
+        color: white;
+      }
+
+      .angs-title{
+        font-size: 32px;
+        vertical-align: middle;
+      }
+
+      .angs-subtitle{
+        font-size: 20px;
+      }
+
+      .angs-nav-menu{
+        font-size: 16px;
+        padding-left: 15px;
+        padding-right: 15px;
+        vertical-align: super;
+      }
+
+      .angs-nav-divider{
+        height: 1px;
+        background-color: #9C27B0;
+        margin-top: 5px;
+        margin-bottom: 5px;
+      }
+
+      .angs-icon{
+        vertical-align: middle;
+      }
+
+      .angs-nav{
+        width: 40%;
+      }
+
+      .main-scrollable{
+        height: 283px;
+        overflow-y: auto;
+      }
+
+      .table-scrollable{
+        height: 373.5px;
+        overflow-y: auto;
+      }
+
+    </style>
+  </head>
+
+  <body>
+
+      <div id="title-bar" class="w3-container angs-navbar w3-green">
+        <p class="nunito-font angs-title-bar angs-title-bar">
+          <button class="mdl-button mdl-js-button mdl-button--fab w3-light-green" onclick="w3_open()"><i class="w3-text-white material-icons">menu</i></button>
+          <span class="angs-title prompt-font">&nbsp;ระบบสารสนเทศนิสิต<span class="angs-subtitle prompt-font"> มหาวิทยาลัยเกษตรศาสตร์</span></span>
+        </p>
+      </div>
+
+      <script>
+        function w3_open() {
+          document.getElementById("mySidenav").style.display = "block";
+          document.getElementById("myOverlay").style.display = "block";
+        }
+
+        function w3_close() {
+          document.getElementById("mySidenav").style.display = "none";
+          document.getElementById("myOverlay").style.display = "none";
+        }
+      </script>
+
+      <nav class="w3-sidenav w3-animate-left angs-nav w3-pale-green" style="z-index: 5; display: none;" id="mySidenav">
+        <a href="main.html" class="w3-text-black w3-padding-4"><i class="material-icons w3-text-indigo">home</i><span class="angs-nav-menu">หน้าหลัก</span></a>
+        <a href="account.html" class="w3-text-black w3-padding-4"><i class="material-icons w3-text-indigo">person</i><span class="angs-nav-menu">ข้อมูลสมาชิก</span></a>
+        <a href="schedule.html" class="w3-text-black w3-padding-4"><i class="material-icons w3-text-indigo">event_note</i><span class="angs-nav-menu">ตารางเรียน</span></a>
+        <a href="regis.html" class="w3-text-black w3-padding-4"><i class="material-icons w3-text-indigo">edit</i><span class="angs-nav-menu">ลงทะเบียน</span></a>
+        <a href="#" class="w3-text-black w3-padding-4"><i class="material-icons w3-text-indigo">layers</i><span class="angs-nav-menu">KU3 Online</span></a>
+        <a href="report.html" class="w3-text-black w3-padding-4"><i class="material-icons w3-text-indigo">description</i><span class="angs-nav-menu">รายงาน</span></a>
+        <a href="#" class="w3-text-black w3-padding-4"><i class="material-icons w3-text-indigo">playlist_add_check</i><span class="angs-nav-menu">ใบเสร็จรับเงิน(KU2)</span></a>
+        <a href="#" class="w3-text-black w3-padding-4"><i class="material-icons w3-text-indigo">library_books</i><span class="angs-nav-menu">ตรวจสอบหนี้ค้างชำระ</span></a>
+        <a href="#" class="w3-text-black w3-padding-4"><i class="material-icons w3-text-indigo">library_books</i><span class="angs-nav-menu">ตรวจสอบหนี้สินอื่นๆ</span></a>
+
+        <div class="angs-nav-divider"></div>
+        <a href="#" class="w3-text-black w3-padding-4"><i class="material-icons w3-text-indigo">book</i><span class="angs-nav-menu">คู่มือการใช้งาน</span></a>
+        <a href="login.html" class="w3-text-black w3-padding-4"><i class="material-icons w3-text-indigo">exit_to_app</i><span class="angs-nav-menu">ออกจากระบบ</span></a>
+      </nav>
+
+      <div class="w3-overlay w3-animate-opacity" style="display: none;" onclick="w3_close()" id="myOverlay"></div>
+
+      <main class="w3-light-grey ">
+
+          <!-- <div class="w3-row w3-padding-4"></div> -->
+
+          <div class="w3-row w3-padding-8 w3-light-green w3-border">
+            <h4 class="w3-center w3-text-white"><i class="material-icons">school</i> รายวิชาที่เปิดสอน สำหรับนิสิตวิทยาเขตบางเขน</h4>
+            <p class="w3-center w3-text-white">ปีการศึกษา 2559 ภาคเรียน ปลาย</p>
+          </div>
+          <div class="w3-row w3-border">
+            <div class="w3-col l4 w3-pale-green w3-border">
+              <div class="w3-container">
+                <div class="w3-row w3-margin-top ">
+                  <div class="w3-col l10 ">
+                    <input class="w3-input w3-border w3-round-xlarge" type="text" placeholder="กรุณาใส่รหัสวิชา หรือ ชื่อวิชา..." id="myInput" onkeyup="myFunction()" />
+
+                  </div>
+
+                  <div class="w3-col l2">
+                    <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect w3-teal w3-margin-left">
+                      <i class="material-icons w3-text-white">search</i>
+                    </button>
+                  </div>
+
+                </div>
+                <div class="w3-row main-scrollable w3-margin-top w3-margin-bottom">
+                  <ul class="w3-ul w3-border w3-hoverable w3-white" id="myUL">
+                    <li>
+                      <a href="#" style="text-decoration: none;" onclick="firsttable()">
+                        <div class="w3-row w3-text-black w3-ripple">
+                          01175127 Hockey
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" style="text-decoration: none;" onclick="secondtable()">
+                        <div class="w3-row w3-text-black w3-ripple">
+                          01175128 Table Tennis
+                        </div>
+                      </a>
+                    </li>
+
+                    <li>
+                      <a href="#" style="text-decoration: none;" onclick="firsttable()">
+                        <div class="w3-row w3-text-black w3-ripple">
+                          01355111 Foundation English I
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" style="text-decoration: none;" onclick="secondtable()">
+                        <div class="w3-row w3-text-black w3-ripple">
+                          01355112 Foundation English II
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" style="text-decoration: none;" onclick="firsttable()">
+                        <div class="w3-row w3-text-black w3-ripple">
+                          01355113 Foundation English III
+                        </div>
+                      </a>
+                    </li>
+
+                    <li>
+                      <a href="#" style="text-decoration: none;" onclick="secondtable()">
+                        <div class="w3-row w3-text-black w3-ripple">
+                          01417111 Calculus I
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" style="text-decoration: none;" onclick="firsttable()">
+                        <div class="w3-row w3-text-black w3-ripple">
+                          01417112 Calculus II
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" style="text-decoration: none;" onclick="secondtable()">
+                        <div class="w3-row w3-text-black w3-ripple">
+                          01417113 Calculus III
+                        </div>
+                      </a>
+                    </li>
+
+                    <li>
+                      <a href="#" style="text-decoration: none;" onclick="firsttable()">
+                        <div class="w3-row w3-text-black w3-ripple">
+                          01418116 Computer Programming
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" style="text-decoration: none;" onclick="secondtable()">
+                        <div class="w3-row w3-text-black w3-ripple">
+                          01424111 Principles of Biology
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" style="text-decoration: none;" onclick="firsttable()">
+                        <div class="w3-row w3-text-black w3-ripple">
+                          01424112 Laboratory for Biology
+                        </div>
+                      </a>
+                    </li>
+
+                    <li>
+                      <a href="#" style="text-decoration: none;" onclick="secondtable()">
+                        <div class="w3-row w3-text-black w3-ripple">
+                          01453102 Law in Everyday Life
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" style="text-decoration: none;" onclick="firsttable()">
+                        <div class="w3-row w3-text-black w3-ripple">
+                          01459101 Psychology for Modern Life
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" style="text-decoration: none;" onclick="secondtable()">
+                        <div class="w3-row w3-text-black w3-ripple">
+                          01418114 Introduction to Computer Science
+                        </div>
+                      </a>
+                    </li>
+
+                    <li>
+                      <a href="#" style="text-decoration: none;" onclick="firsttable()">
+                        <div class="w3-row w3-text-black w3-ripple">
+                          01999021 Thai Language for Communication
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" style="text-decoration: none;" onclick="secondtable()">
+                        <div class="w3-row w3-text-black w3-ripple">
+                          01418332 Operating Systems
+                        </div>
+                      </a>
+                    </li>
+
+                  </ul>
+
+                  <script>
+                    function myFunction() {
+                        var input, filter, ul, li, a, i;
+                        input = document.getElementById("myInput");
+                        filter = input.value.toUpperCase();
+                        ul = document.getElementById("myUL");
+                        li = ul.getElementsByTagName("li");
+                        for (i = 0; i < li.length; i++) {
+                            if (li[i].innerHTML.toUpperCase().indexOf(filter) > -1) {
+                                li[i].style.display = "";
+                            } else {
+                                li[i].style.display = "none";
+                            }
+                        }
+                    }
+
+                    function firsttable(){
+                      var table_1 = document.getElementById("table-1");
+                      var table_2 = document.getElementById("table-2");
+                      table_1.style.display = "block";
+                      table_2.style.display = "none";
+                    }
+
+                    function secondtable(){
+                      var table_1 = document.getElementById("table-1");
+                      var table_2 = document.getElementById("table-2");
+                      table_1.style.display = "none";
+                      table_2.style.display = "block";
+                    }
+                  </script>
+
+                </div>
+              </div>
+            </div>
+            <div class="w3-col l8 w3-white w3-border table-scrollable">
+              <div class="w3-margin" id="table-1" style="display:none;">
+                <div class="w3-row">
+                  <p style="font-size: 18px;">01175127 Hockey บรรยาย : 2 หน่วยกิต ปฏิบัติ : 1 หน่วยกิต</p>
+                </div>
+                <div class="w3-row">
+                  <table class="w3-table-all">
+                    <thead>
+                      <tr class="w3-green">
+                        <th>ลำดับที่</th>
+                        <th>ประเภท</th>
+                        <th>หมู่</th>
+                        <th>วัน-เวลา</th>
+                        <th>ห้องเรียน</th>
+                        <th>อาจารย์ผู้สอน</th>
+                        <th>จำนวนนิสิตที่รับได้</th>
+                        <th>จำนวนนิสิตลงทะเบียน</th>
+                        <th>สาขา-ปีที่ลงได้</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="w3-center">1</td>
+                        <td>บรรยาย</td>
+                        <td>1</td>
+                        <td>อ. 08.00-09.30 น.</td>
+                        <td>LH1-226</td>
+                        <td>xxx xxx</td>
+                        <td class="w3-center">999</td>
+                        <td class="w3-center">14</td>
+                        <td class="w3-center">All</td>
+                      </tr>
+                      <tr>
+                        <td class="w3-center">2</td>
+                        <td>บรรยาย</td>
+                        <td>2</td>
+                        <td>อ. 08.00-09.30 น.</td>
+                        <td>LH1-226</td>
+                        <td>xxx xxx</td>
+                        <td class="w3-center">999</td>
+                        <td class="w3-center">14</td>
+                        <td class="w3-center">All</td>
+                      </tr>
+                      <tr>
+                        <td class="w3-center">3</td>
+                        <td>ปฏิบัติ</td>
+                        <td>11</td>
+                        <td>พฤ. 09.00-11.00 น.</td>
+                        <td>SCL 306</td>
+                        <td>xxx xxx</td>
+                        <td class="w3-center">999</td>
+                        <td class="w3-center">14</td>
+                        <td class="w3-center">All</td>
+                      </tr>
+                      <tr>
+                        <td class="w3-center">4</td>
+                        <td>ปฏิบัติ</td>
+                        <td>200</td>
+                        <td>พฤ. 09.00-11.00 น.</td>
+                        <td>SCL 306</td>
+                        <td>xxx xxx</td>
+                        <td class="w3-center">999</td>
+                        <td class="w3-center">14</td>
+                        <td class="w3-center">All</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+
+              <div class="w3-margin" id="table-2" style="display:none;">
+                <div class="w3-row">
+                  <p style="font-size: 18px;">01175128 Table Tennis บรรยาย : 2 หน่วยกิต ปฏิบัติ : 1 หน่วยกิต</p>
+                </div>
+                <div class="w3-row">
+                  <table class="w3-table-all">
+                    <thead>
+                      <tr class="w3-green">
+                        <th>ลำดับที่</th>
+                        <th>ประเภท</th>
+                        <th>หมู่</th>
+                        <th>วัน-เวลา</th>
+                        <th>ห้องเรียน</th>
+                        <th>อาจารย์ผู้สอน</th>
+                        <th>จำนวนนิสิตที่รับได้</th>
+                        <th>จำนวนนิสิตลงทะเบียน</th>
+                        <th>สาขา-ปีที่ลงได้</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="w3-center">1</td>
+                        <td>บรรยาย</td>
+                        <td>1</td>
+                        <td>อ. 08.00-09.30 น.</td>
+                        <td>LH1-226</td>
+                        <td>xxx xxx</td>
+                        <td class="w3-center">999</td>
+                        <td class="w3-center">14</td>
+                        <td class="w3-center">All</td>
+                      </tr>
+                      <tr>
+                        <td class="w3-center">2</td>
+                        <td>บรรยาย</td>
+                        <td>2</td>
+                        <td>อ. 08.00-09.30 น.</td>
+                        <td>LH1-226</td>
+                        <td>xxx xxx</td>
+                        <td class="w3-center">999</td>
+                        <td class="w3-center">14</td>
+                        <td class="w3-center">All</td>
+                      </tr>
+                      <tr>
+                        <td class="w3-center">3</td>
+                        <td>ปฏิบัติ</td>
+                        <td>11</td>
+                        <td>พฤ. 09.00-11.00 น.</td>
+                        <td>SCL 306</td>
+                        <td>xxx xxx</td>
+                        <td class="w3-center">999</td>
+                        <td class="w3-center">14</td>
+                        <td class="w3-center">All</td>
+                      </tr>
+                      <tr>
+                        <td class="w3-center">4</td>
+                        <td>ปฏิบัติ</td>
+                        <td>200</td>
+                        <td>พฤ. 09.00-11.00 น.</td>
+                        <td>SCL 306</td>
+                        <td>xxx xxx</td>
+                        <td class="w3-center">999</td>
+                        <td class="w3-center">14</td>
+                        <td class="w3-center">All</td>
+                      </tr>
+                      <tr>
+                        <td class="w3-center">3</td>
+                        <td>ปฏิบัติ</td>
+                        <td>11</td>
+                        <td>พฤ. 09.00-11.00 น.</td>
+                        <td>SCL 306</td>
+                        <td>xxx xxx</td>
+                        <td class="w3-center">999</td>
+                        <td class="w3-center">14</td>
+                        <td class="w3-center">All</td>
+                      </tr>
+                      <tr>
+                        <td class="w3-center">4</td>
+                        <td>ปฏิบัติ</td>
+                        <td>200</td>
+                        <td>พฤ. 09.00-11.00 น.</td>
+                        <td>SCL 306</td>
+                        <td>xxx xxx</td>
+                        <td class="w3-center">999</td>
+                        <td class="w3-center">14</td>
+                        <td class="w3-center">All</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+
+
+            </div>
+          </div>
+
+
+          <!-- <div class="w3-row w3-padding-8"></div> -->
+
+
+
+
+      </main>
+
+      <footer class="w3-container w3-green w3-center ">
+        <p class="w3-margin-top">ติดต่อสอบถาม สำนักทะเบียนและประมวลผล โทร: 02-9428200 ต่อ 618035-42 Fax: 02-1180111</p>
+      </footer>
+
+
+  </body>
+</html>

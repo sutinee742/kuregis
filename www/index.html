@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Kasetsart University</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:300,400,700" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Prompt:300,400,500,600" />
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+
+    <script>
+      $( document ).ready(function() {
+        console.log( "document loaded" );
+
+
+
+      });
+    </script>
+
+    <style>
+      body{
+        display: flex;
+        min-height: 100vh;
+        flex-direction: column;
+        font-family: 'Prompt' !important;
+      }
+
+      main {
+        flex: 1 0 auto;
+      }
+
+      h1, h2, h3, h4, h5, h6, .prompt-font{
+        font-family: 'Prompt' !important;
+      }
+
+      .nunito-font{
+        font-family: 'Nunito' !important;
+      }
+
+      .prompt-font{
+        font-family: 'Prompt' !important;
+      }
+
+      .angs-navbar{
+        background-color: rgba(103, 58, 183, 0.8);
+      }
+
+      .angs-title-bar{
+        margin-top: 10px;
+        margin-bottom: 10px;
+        color: white;
+      }
+
+      .angs-title{
+        font-size: 32px;
+        vertical-align: middle;
+      }
+
+      .angs-subtitle{
+        font-size: 20px;
+      }
+
+      .angs-nav-menu{
+        font-size: 16px;
+        padding-left: 15px;
+        padding-right: 15px;
+        vertical-align: super;
+      }
+
+      .angs-nav-divider{
+        height: 1px;
+        background-color: #9C27B0;
+        margin-top: 5px;
+        margin-bottom: 5px;
+      }
+
+      .angs-icon{
+        vertical-align: middle;
+      }
+
+      .angs-nav{
+        width: 40%;
+      }
+
+      .main-scrollable{
+        height: 100px;
+        overflow-y: auto;
+      }
+
+    </style>
+  </head>
+
+  <body>
+
+      <div id="title-bar" class="w3-container angs-navbar w3-green">
+        <p class="nunito-font angs-title-bar angs-title-bar">
+          <button class="mdl-button mdl-js-button mdl-button--fab w3-light-green" onclick="w3_open()"><i class="w3-text-white material-icons">menu</i></button>
+          <span class="angs-title prompt-font">&nbsp;ระบบสารสนเทศนิสิต<span class="angs-subtitle prompt-font"> มหาวิทยาลัยเกษตรศาสตร์</span></span>
+        </p>
+      </div>
+
+      <script>
+        function w3_open() {
+          document.getElementById("mySidenav").style.display = "block";
+          document.getElementById("myOverlay").style.display = "block";
+        }
+
+        function w3_close() {
+          document.getElementById("mySidenav").style.display = "none";
+          document.getElementById("myOverlay").style.display = "none";
+        }
+      </script>
+
+      <nav class="w3-sidenav w3-animate-left angs-nav w3-pale-green" style="z-index: 5; display: none;" id="mySidenav">
+        <a href="index.html" class="w3-text-black w3-padding-4"><i class="material-icons w3-text-indigo">home</i><span class="angs-nav-menu">หน้าหลัก</span></a>
+        <a href="login.html" class="w3-text-black w3-padding-4"><i class="material-icons w3-text-indigo">person</i><span class="angs-nav-menu">เข้าสู่ระบบ</span></a>
+        <div class="angs-nav-divider"></div>
+        <a href="#" class="w3-text-black w3-padding-4"><i class="material-icons w3-text-indigo">content_copy</i><span class="angs-nav-menu">ข้อควรรู้สำหรับนิสิต</span></a>
+        <a href="#" class="w3-text-black w3-padding-4"><i class="material-icons w3-text-indigo">school</i><span class="angs-nav-menu">การศึกษาในมหาวิทยาลัย</span></a>
+        <a href="#" class="w3-text-black w3-padding-4"><i class="material-icons w3-text-indigo">card_giftcard</i><span class="angs-nav-menu">ทุนการศึกษา</span></a>
+        <a href="#" class="w3-text-black w3-padding-4"><i class="material-icons w3-text-indigo">book</i><span class="angs-nav-menu">แหล่งความรู้ครบวงจร</span></a>
+        <a href="#" class="w3-text-black w3-padding-4"><i class="material-icons w3-text-indigo">layers</i><span class="angs-nav-menu">หน่วยงานบริการนิสิต</span></a>
+        <a href="#" class="w3-text-black w3-padding-4"><i class="material-icons w3-text-indigo">group_work</i><span class="angs-nav-menu">ชมรม/ชุมนุม นิสิต มก.</span></a>
+        <a href="#" class="w3-text-black w3-padding-4"><i class="material-icons w3-text-indigo">domain</i><span class="angs-nav-menu">บริการของมหาวิทยาลัย</span></a>
+        <a href="#" class="w3-text-black w3-padding-4"><i class="material-icons w3-text-indigo">library_books</i><span class="angs-nav-menu">หลักสูตรการศึกษา</span></a>
+        <div class="angs-nav-divider"></div>
+        <a href="#" class="w3-text-black w3-padding-4"><i class="material-icons w3-text-indigo">school</i><span class="angs-nav-menu">เว็บการลงทะเบียนเรียนนิสิต</span></a>
+        <a href="#" class="w3-text-black w3-padding-4"><i class="material-icons w3-text-indigo">web</i><span class="angs-nav-menu">เว็บอื่น ๆ ที่เกี่ยวข้อง</span></a>
+        <a href="#" class="w3-text-black w3-padding-4"><i class="material-icons w3-text-indigo">web_asset</i><span class="angs-nav-menu">เว็บเจ้าหน้าที่ และอาจารย์ที่ปรีกษา</span></a>
+        <a href="#" class="w3-text-black w3-padding-4"><i class="material-icons w3-text-indigo">phone</i><span class="angs-nav-menu">ติดต่อสอบถาม</span></a>
+        <a href="#" class="w3-text-black w3-padding-4"><i class="material-icons w3-text-indigo">account_circle</i><span class="angs-nav-menu">ผู้ดูแลระบบ</span></a>
+        <a href="#" class="w3-text-black w3-padding-4"><i class="material-icons w3-text-indigo">data_usage</i><span class="angs-nav-menu">การเข้าถึงข้อมูล</span></a>
+      </nav>
+
+      <div class="w3-overlay w3-animate-opacity" style="display: none;" onclick="w3_close()" id="myOverlay"></div>
+
+      <main class="w3-light-grey main-scrollable">
+        <div class="w3-container ">
+          <div class="w3-row">
+            <h3 class="w3-text-shadow w3-text-deep-purple">ข่าวประชาสัมพันธ์<i class="material-icons w3-text-amber">new_releases</i></h3>
+          </div>
+
+          <div class="w3-row">
+            <div class="w3-panel w3-pale-red w3-leftbar w3-border-red">
+              <h6 class="w3-text-red">นิสิตโปรดทราบ</h6>
+              <h5>ขยายเวลาการพิมพ์ใบแจ้งหนี้ ภาคปลาย 2559 </h5>
+              <p>สำนักทะเบียนและประมวลผลได้ขยายเวลาการชำระเงินค่าลงทะเบียน สำหรับภาคปลาย 2559 โดยนิสิตสามารถพิมพ์แบบชำระเงิน (ใบแจ้งหนี้ [KU9]) ภาคปลาย 2559 ได้ตั้งแต่ วันที่ 23 - 27 ม.ค.60 </p>
+              <p>*** หากพ้นกำหนดแล้ว นิสิตจะพิมพ์แบบชำระเงินได้อีกครั้งคือ วันที่ 1-10 ของทุกเดือน จนถึงวันสุดท้ายของการเรียน-การสอน ***</p>
+              <p class="w3-center">Login เข้าระบบ -> คลิกเมนู รายงาน -> คลิก ใบแจ้งหนี้ [KU9] -> คลิก แสดงใบแจ้งหนี้</p>
+              <p><a href="#">คำแนะนำสำหรับการพิมพ์แบบชำระเงินค่าลงทะเบียน (ใบแจ้งหนี้ [KU9]) </a></p>
+            </div>
+          </div>
+
+          <div class="w3-row">
+            <div class="w3-panel w3-pale-red w3-leftbar w3-border-red">
+              <h5>การจัดทดสอบวัดความรู้ความสามารถด้านภาษาอังกฤษ สำหรับนิสิตมหาวิทยาลัยเกษตรศาสตร์ ประจำปี 2559 </h5>
+              <p>ตามที่มหาวิทยาลัยเกษตรศาสตร์ ได้มีประกาศ เรื่องการจัดทดสอบวัดความรู้ความสามารถด้านภาษาอังกฤษ สำหรับนิสิตมหาวิทยาลัยเกษตรศาสตร์ ประจำปี 2559 ซึ่งนิสิตชั้นปีที่ 3 (รหัส 57) เฉพาะนิสิตหลักสูตร 4 ปี ต้องเข้าทดสอบวัดความรู้ความสามารถด้านภาษาอังกฤษ โดยต้องเข้าระบบเพื่อยืนยันการเข้ารับการทดสอบระหว่าง วันที่ 19 ธันวาคม 2559 – 19 มกราคม 2560 </p>
+              <p>หากนิสิตไม่เข้ารับระบบยืนยันการเข้ารับการทดสอบจะถือว่านิสิตไม่ประสงค์เข้ารับการทดสอบที่มหาวิทยาลัยจัดให้</p>
+              <p><a href="#">โปรดคลิกเพื่อ ยืนยันการเข้ารับการทดสอบภาษาอังกฤษ </a></p>
+            </div>
+          </div>
+
+          <div class="w3-row">
+            <div class="w3-panel w3-pale-blue w3-leftbar w3-border-blue">
+              <h6 class="w3-text-blue">บุคลากรโปรดทราบ</h6>
+              <p>การใช้งานระบบสารสนเทศนิสิต</p>
+              <p><a href="#" class="w3-text-indigo">บุคลากรที่ประสงค์จะเข้าใช้งานระบบสารสนเทศนิสิต โปรดคลิก...ที่นี่...</a></p>
+            </div>
+          </div>
+
+          <div class="w3-row">
+            <div class="w3-panel w3-pale-green w3-leftbar w3-border-green">
+              <h6 class="w3-text-gren">ปฏิทินการศึกษา</h6>
+              <p><a href="#" class="w3-text-teal">ภาคปลาย 2559 <<โปรดคลิก>></a></p>
+            </div>
+          </div>
+
+
+
+
+        </div>
+
+      </main>
+
+      <footer class="w3-container w3-green w3-center ">
+        <p class="w3-margin-top">ติดต่อสอบถาม สำนักทะเบียนและประมวลผล โทร: 02-9428200 ต่อ 618035-42 Fax: 02-1180111</p>
+      </footer>
+
+
+  </body>
+</html>

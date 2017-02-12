@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Kasetsart University</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:300,400,700" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Prompt:300,400,500,600" />
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+
+    <script>
+      $( document ).ready(function() {
+        console.log( "document loaded" );
+
+        var i=0;
+        $('#addsubject').on('click',function(){
+          i++;
+          console.log(i);
+          var subject = $("#subject-input").val();
+          var datasubject = subject.split(", ");
+          var subject_id = datasubject[0];
+          var subject_name = datasubject[1];
+          console.log(subject_id+" "+subject_name);
+          if(i==1){
+            $("#myTable > thead").append(
+              "<tr class='w3-blue'><th>รหัสวิชา</th><th>ชื่อวิชา</th><th>ประเภทลงทะเบียน</th><th>หมู่เรียนบรรยาย</th><th>หมู่เรียนปฏิบัติ</th><th>หน่วยกิตบรรยาย</th><th>หน่วยกิตปฏิบัติ</th><th>ลบ</th></tr>"
+            );
+            $("#myTable > tbody").append("<tr class='item-row'>"+
+                "<td>"+subject_id+"</td>"+
+                "<td>"+subject_name+"</td>"+
+                "<td>"+"<select class='w3-select w3-border w3-padding-0' name='type'><option value='C' selected>Credit</option><option value='A'>Audit</option></select>"+"</td>"+
+                "<td>"+"<select class='w3-select w3-border w3-padding-0' name='sec-main'><option value='1' class='' selected>หมู่ 1 :: รับ 999 คน :: เหลือ 999 คน</option><option value='2' class=''>หมู่ 2 :: รับ 999 คน :: เหลือ 999 คน</option><option value='3' class='w3-text-red' disabled>หมู่ 3 :: รับ 999 คน :: เหลือ 0 คน</option></select>"+"</td>"+
+                "<td>"+"<select class='w3-select w3-border w3-padding-0' name='sec-sub'><option value='1' class='' selected>หมู่ 11 :: รับ 999 คน :: เหลือ 999 คน</option><option value='2' class=''>หมู่ 200 :: รับ 999 คน :: เหลือ 999 คน</option><option value='21' class='w3-text-red' disabled>หมู่ 210 :: รับ 999 คน :: เหลือ 0 คน</option></select>"+"</td>"+
+                "<td class='w3-center'>"+"3"+"</td>"+
+                "<td class='w3-center'>"+"1"+"</td>"+
+                "<td class='w3-center'>"+"<button type='button' name='del-btn' class='w3-red mydel' onclick='mydel(this)'>X</button>"+"</td>"+
+                "</tr>");
+              $("#save-btn").append("<button class='w3-btn w3-round-large w3-teal w3-margin-right' id='save-button' onclick='myregis()' >บันทึก</button><button class='w3-btn w3-round-large w3-red' id='cancel-button'>ยกเลิก</button>");
+          }else{
+
+            $("#myTable > tbody").append("<tr>"+
+                "<td>"+subject_id+"</td>"+
+                "<td>"+subject_name+"</td>"+
+                "<td>"+"<select class='w3-select w3-border w3-padding-0' name='type'><option value='C' selected>Credit</option><option value='A'>Audit</option></select>"+"</td>"+
+                "<td>"+"<select class='w3-select w3-border w3-padding-0' name='sec-main'><option value='1' class='' selected>หมู่ 1 :: รับ 999 คน :: เหลือ 999 คน</option><option value='2' class=''>หมู่ 2 :: รับ 999 คน :: เหลือ 999 คน</option><option value='3' class='w3-text-red' disabled>หมู่ 3 :: รับ 999 คน :: เหลือ 0 คน</option></select>"+"</td>"+
+                "<td>"+"<select class='w3-select w3-border w3-padding-0' name='sec-sub'><option value='1' class='' selected>หมู่ 11 :: รับ 999 คน :: เหลือ 999 คน</option><option value='2' class=''>หมู่ 200 :: รับ 999 คน :: เหลือ 999 คน</option><option value='21' class='w3-text-red' disabled>หมู่ 210 :: รับ 999 คน :: เหลือ 0 คน</option></select>"+"</td>"+
+                "<td class='w3-center'>"+"3"+"</td>"+
+                "<td class='w3-center'>"+"1"+"</td>"+
+                "<td class='w3-center'>"+"<button type='button' name='del-btn' class='w3-red mydel' onclick='mydel(this)'>X</button>"+"</td>"+
+                "</tr>");
+          }
+
+          $("#subject-input").val('');
+
+        });
+
+      });
+
+      function mydel(par){
+        console.log(123);
+        console.log($(par).closest('tr'));
+        $(par).closest('tr').remove();
+      }
+
+      function myregis(){
+        console.log(456);
+        document.getElementById('progress-bar').style.display='block';
+        var elem = document.getElementById("myBar");
+        var width = 0;
+        var id = setInterval(frame, 30);
+        function frame() {
+          if (width >= 100) {
+            clearInterval(id);
+            document.getElementById('progress-bar').style.display='none';
+            document.getElementById('table-regis').style.display='block';
+            document.getElementById('drop-regis').style.display='block';
+            document.getElementById('myTable').style.display='none';
+            document.getElementById('save-button').style.display='none';
+            document.getElementById('cancel-button').style.display='none';
+
+          } else {
+            width++;
+            elem.style.width = width + '%';
+            document.getElementById("demo").innerHTML = width * 1  + '%';
+          }
+        }
+
+
+      }
+
+
+
+    </script>
+
+    <style>
+      body{
+        display: flex;
+        min-height: 100vh;
+        flex-direction: column;
+        font-family: 'Prompt' !important;
+      }
+
+      main {
+        flex: 1 0 auto;
+      }
+
+      h1, h2, h3, h4, h5, h6, .prompt-font{
+        font-family: 'Prompt' !important;
+      }
+
+      .nunito-font{
+        font-family: 'Nunito' !important;
+      }
+
+      .prompt-font{
+        font-family: 'Prompt' !important;
+      }
+
+      .angs-navbar{
+        background-color: rgba(103, 58, 183, 0.8);
+      }
+
+      .angs-title-bar{
+        margin-top: 10px;
+        margin-bottom: 10px;
+        color: white;
+      }
+
+      .angs-title{
+        font-size: 32px;
+        vertical-align: middle;
+      }
+
+      .angs-subtitle{
+        font-size: 20px;
+      }
+
+      .angs-nav-menu{
+        font-size: 16px;
+        padding-left: 15px;
+        padding-right: 15px;
+        vertical-align: super;
+      }
+
+      .angs-nav-divider{
+        height: 1px;
+        background-color: #9C27B0;
+        margin-top: 5px;
+        margin-bottom: 5px;
+      }
+
+      .angs-icon{
+        vertical-align: middle;
+      }
+
+      .angs-nav{
+        width: 40%;
+      }
+
+      .main-scrollable{
+        height: 100px;
+        overflow-y: auto;
+      }
+
+    </style>
+  </head>
+
+  <body>
+
+      <div id="title-bar" class="w3-container angs-navbar w3-green">
+        <p class="nunito-font angs-title-bar angs-title-bar">
+          <button class="mdl-button mdl-js-button mdl-button--fab w3-light-green" onclick="w3_open()"><i class="w3-text-white material-icons">menu</i></button>
+          <span class="angs-title prompt-font">&nbsp;ระบบสารสนเทศนิสิต<span class="angs-subtitle prompt-font"> มหาวิทยาลัยเกษตรศาสตร์</span></span>
+        </p>
+      </div>
+
+      <script>
+        function w3_open() {
+          document.getElementById("mySidenav").style.display = "block";
+          document.getElementById("myOverlay").style.display = "block";
+        }
+
+        function w3_close() {
+          document.getElementById("mySidenav").style.display = "none";
+          document.getElementById("myOverlay").style.display = "none";
+        }
+      </script>
+
+      <nav class="w3-sidenav w3-animate-left angs-nav w3-pale-green" style="z-index: 5; display: none;" id="mySidenav">
+        <a href="main.html" class="w3-text-black w3-padding-4"><i class="material-icons w3-text-indigo">home</i><span class="angs-nav-menu">หน้าหลัก</span></a>
+        <a href="account.html" class="w3-text-black w3-padding-4"><i class="material-icons w3-text-indigo">person</i><span class="angs-nav-menu">ข้อมูลสมาชิก</span></a>
+        <a href="schedule.html" class="w3-text-black w3-padding-4"><i class="material-icons w3-text-indigo">event_note</i><span class="angs-nav-menu">ตารางเรียน</span></a>
+        <a href="regis.html" class="w3-text-black w3-padding-4"><i class="material-icons w3-text-indigo">edit</i><span class="angs-nav-menu">ลงทะเบียน</span></a>
+        <a href="#" class="w3-text-black w3-padding-4"><i class="material-icons w3-text-indigo">layers</i><span class="angs-nav-menu">KU3 Online</span></a>
+        <a href="report.html" class="w3-text-black w3-padding-4"><i class="material-icons w3-text-indigo">description</i><span class="angs-nav-menu">รายงาน</span></a>
+        <a href="#" class="w3-text-black w3-padding-4"><i class="material-icons w3-text-indigo">playlist_add_check</i><span class="angs-nav-menu">ใบเสร็จรับเงิน(KU2)</span></a>
+        <a href="#" class="w3-text-black w3-padding-4"><i class="material-icons w3-text-indigo">library_books</i><span class="angs-nav-menu">ตรวจสอบหนี้ค้างชำระ</span></a>
+        <a href="#" class="w3-text-black w3-padding-4"><i class="material-icons w3-text-indigo">library_books</i><span class="angs-nav-menu">ตรวจสอบหนี้สินอื่นๆ</span></a>
+
+        <div class="angs-nav-divider"></div>
+        <a href="#" class="w3-text-black w3-padding-4"><i class="material-icons w3-text-indigo">book</i><span class="angs-nav-menu">คู่มือการใช้งาน</span></a>
+        <a href="login.html" class="w3-text-black w3-padding-4"><i class="material-icons w3-text-indigo">exit_to_app</i><span class="angs-nav-menu">ออกจากระบบ</span></a>
+      </nav>
+
+      <div class="w3-overlay w3-animate-opacity" style="display: none;" onclick="w3_close()" id="myOverlay"></div>
+
+      <main class="w3-light-grey main-scrollable">
+        <div class="w3-container ">
+          <div class="w3-row w3-padding-8"></div>
+
+          <div class="w3-row w3-padding-8">
+            <div class="w3-card-2 w3-lime">
+              <div class="w3-container">
+                <h4 class="w3-text-indigo"><i class="material-icons">school</i> การลงทะเบียนเรียนมหาวิทยาลัยเกษตรศาสตร์ วิทยาเขตบางเขน ปีการศึกษา 2559 ภาคปลาย</h4>
+              </div>
+
+              <div class="w3-container ">
+                <div class="w3-row">
+                  <div class="w3-panel w3-pale-green w3-leftbar w3-border-green">
+                    <div class="w3-row w3-padding-4">
+                      <div class="w3-half">
+                        <strong class="w3-text-teal">รหัสนิสิต</strong><span> 5610404649</span>
+                      </div>
+                      <div class="w3-half">
+                        <strong class="w3-text-teal">ชื่อ-นามสกุล</strong><span> นางสาว สุธินี ทรงกล้า (Miss Sutinee SONGKLA)</span>
+                      </div>
+                    </div>
+                    <div class="w3-row w3-padding-4">
+                      <div class="w3-half">
+                        <strong class="w3-text-teal">อาจารย์ที่ปรึกษา</strong><span> วรเศรษฐ สุวรรณิก</span>
+                      </div>
+                      <div class="w3-half">
+                        <strong class="w3-text-teal">รหัสอาจารย์ที่ปรึกษา</strong><span> D1417</span>
+                      </div>
+                    </div>
+                    <div class="w3-row w3-padding-4">
+                      <div class="w3-half">
+                        <strong class="w3-text-teal">สาขา</strong><span> วิทยาการคอมพิวเตอร์ (D14)</span><strong class="w3-text-teal"> คณะ</strong><span> วิทยาศาสตร์</span><strong class="w3-text-teal"> วิทยาเขต</strong><span> บางเขน</span>
+                      </div>
+                      <div class="w3-half">
+                        <strong  class="w3-text-teal">ชั้นปี</strong><span> 4 (D14-4)</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="w3-container" style="display:none;" id="table-regis">
+                <div class="w3-row">
+                  <h4 class="w3-text-indigo"><i class="material-icons">done</i> รายวิชาที่ลงทะเบียนแล้ว</h4>
+                </div>
+                <div class="w3-row">
+                  <table class="w3-table-all" >
+                    <thead>
+                      <tr class="w3-green">
+                        <th>ลำดับที่</th>
+                        <th>รหัสวิชา</th>
+                        <th>ชื่อวิชา</th>
+                        <th class="w3-center">ประเภทลงทะเบียน</th>
+                        <th class="w3-center">หมู่เรียนบรรยาย</th>
+                        <th class="w3-center">หมู่เรียนปฏิบัติ</th>
+                        <th class="w3-center">หน่วยกิต</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>1</td>
+                        <td>01175127</td>
+                        <td>AAA</td>
+                        <td class="w3-center">C</td>
+                        <td class="w3-center">1</td>
+                        <td class="w3-center">11</td>
+                        <td class="w3-center">4</td>
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                        <td>01355113</td>
+                        <td>BBB</td>
+                        <td class="w3-center">C</td>
+                        <td class="w3-center">1</td>
+                        <td class="w3-center">11</td>
+                        <td class="w3-center">4</td>
+                      </tr>
+                      <tr>
+                        <td>3</td>
+                        <td>01418116</td>
+                        <td>CCC</td>
+                        <td class="w3-center">C</td>
+                        <td class="w3-center">1</td>
+                        <td class="w3-center">11</td>
+                        <td class="w3-center">3</td>
+
+                      </tr>
+                      <tr id="row-4">
+                        <td>4</td>
+                        <td>01453102</td>
+                        <td>DDD</td>
+                        <td class="w3-center">C</td>
+                        <td class="w3-center">1</td>
+                        <td class="w3-center">11</td>
+                        <td class="w3-center">4</td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td class="w3-center"></td>
+                        <td class="w3-center"></td>
+                        <td class="w3-center">รวม</td>
+                        <td class="w3-center">22</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <div class="w3-container" style="display:none;" id="drop-regis">
+                <div class="w3-row w3-padding-4">
+                  <p class="w3-text-purple w3-right">ถ้าต้องการเปลี่ยนหมู่เรียนให้ทำการ Drop รายวิชาก่อน แล้ว Add รายวิชาที่ต้องการเปลี่ยนหมู่เรียนใหม่ <button type="button" name="button" class="w3-red" id="dropsubject" onclick="document.getElementById('id01').style.display='block'">Drop</button></p>
+                  <div id="id01" class="w3-modal">
+                    <div class="w3-modal-content w3-animate-bottom">
+                      <header class="w3-container w3-red">
+                        <h5 class="w3-text-white"><i class="material-icons">cancel</i> เลือกรายวิชาที่ต้องการดรอป</h5>
+                      </header>
+
+                      <div class="w3-container w3-pale-red">
+                        <ul class="w3-ul w3-border w3-white w3-margin-top">
+                          <li>
+                            <input class="w3-check" type="checkbox">
+                            <label class="w3-validate">รหัสวิชา 01175127 ชื่อวิชา	AAA ประเภทลงทะเบียน Credit หมู่เรียนบรรยาย 1 หมู่เรียนปฏิบัติ 11 หน่วยกิต 4</label>
+                          </li>
+                          <li>
+                            <input class="w3-check" type="checkbox">
+                            <label class="w3-validate">รหัสวิชา 01355113 ชื่อวิชา	BBB ประเภทลงทะเบียน Credit หมู่เรียนบรรยาย 1 หมู่เรียนปฏิบัติ 11 หน่วยกิต 4</label>
+                          </li>
+                          <li>
+                            <input class="w3-check" type="checkbox">
+                            <label class="w3-validate">รหัสวิชา 01418116 ชื่อวิชา	CCC ประเภทลงทะเบียน Credit หมู่เรียนบรรยาย 1 หมู่เรียนปฏิบัติ 11 หน่วยกิต 4</label>
+                          </li>
+                          <li>
+                            <input class="w3-check" type="checkbox">
+                            <label class="w3-validate">รหัสวิชา 01453102 ชื่อวิชา	DDD ประเภทลงทะเบียน Credit หมู่เรียนบรรยาย 1 หมู่เรียนปฏิบัติ 11 หน่วยกิต 4</label>
+                          </li>
+                        </ul>
+                      </div>
+
+                      <footer class="w3-container w3-pale-red">
+                        <div class="w3-row w3-padding-8 w3-right">
+                          <button class="w3-btn w3-round-large w3-green" onclick="move()">ยืนยัน</button>
+                          <button class="w3-btn w3-round-large w3-red" onclick="document.getElementById('id01').style.display='none'">ยกเลิก</button>
+                        </div>
+
+                        <div class="w3-row w3-padding-8">
+                          <div class="w3-progress-container w3-round-large" id="progress-drop-bar" style="display:none;">
+                            <div id="myBar-2" class="w3-progressbar w3-pink w3-round-large" style="width:0%">
+                              <div id="demo-2" class="w3-container w3-text-white">0%</div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <script>
+                          function move() {
+                            document.getElementById('progress-drop-bar').style.display='block';
+                            var elem = document.getElementById("myBar-2");
+                            var width = 0;
+                            var id = setInterval(frame, 30);
+                            function frame() {
+                              if (width >= 100) {
+                                clearInterval(id);
+                                document.getElementById('progress-drop-bar').style.display='none';
+                                document.getElementById('id01').style.display='none';
+                                document.getElementById('row-4').style.display='none';
+                              } else {
+                                width++;
+                                elem.style.width = width + '%';
+                                document.getElementById("demo-2").innerHTML = width * 1  + '%';
+                              }
+                            }
+                          }
+                        </script>
+                      </footer>
+                    </div>
+                  </div>
+                </div>
+
+
+              </div>
+
+            </div>
+          </div>
+
+          <div class="w3-row w3-padding-8">
+            <div class="w3-card-2 w3-white">
+              <div class="w3-container">
+                <div class="w3-row">
+                  <h5 class="w3-text-dark-grey"><i class="material-icons">border_color</i> รายวิชาที่ต้องการลงทะเบียน</h5>
+                </div>
+                <div class="w3-row">
+                  <input list="subjects" name="subject" id="subject-input" placeholder="...รหัสวิชา หรือ ชื่อรายวิชา..."/>
+                  <datalist id="subjects">
+                    <option value="01175127, Hockey" />
+                    <option value="01355113, Foundation English III"/>
+                    <option value="01417111, Calculus I"/>
+                    <option value="01418116, Computer Programming"/>
+                    <option value="01424111, Principles of Biology"/>
+                    <option value="01424112, Laboratory for Biology"/>
+                    <option value="01453102, Law in Everyday Life"/>
+                    <option value="01459101, Psychology for Modern Life"/>
+                    <option value="01418114, Introduction to Computer Science"/>
+                    <option value="01999021, Thai Language for Communication"/>
+                    <option value="01418332, Operating Systems"/>
+                  </datalist>
+                  <button type="button" name="button" class="w3-green" id="addsubject">Add</button>
+                </div>
+
+                <div class="w3-row w3-padding-8"></div>
+
+                <div class="w3-row w3-padding-8">
+                  <table class="w3-table-all" id="myTable">
+                    <thead>
+                      <!-- <tr class="w3-blue">
+                        <th>รหัสวิชา</th>
+                        <th>ชื่อวิชา</th>
+                        <th>ประเภทลงทะเบียน</th>
+                        <th>หมู่เรียนบรรยาย</th>
+                        <th>หมู่เรียนปฏิบัติ</th>
+                        <th>หน่วยกิตบรรยาย</th>
+                        <th>หน่วยกิตปฏิบัติ</th>
+                        <th>ลบ</th>
+                      </tr> -->
+                    </thead>
+                    <tbody></tbody>
+                  </table>
+                </div>
+
+                <div id="save-btn" class="w3-row w3-padding-8 w3-center">
+                  <!-- <button class="w3-btn w3-round-large w3-teal">บันทึก</button>
+                  <button class="w3-btn w3-round-large w3-red">ยกเลิก</button> -->
+                </div>
+
+                <div class="w3-row w3-padding-8" id="progress-bar" style="display:none;">
+                  <div class="w3-progress-container">
+                    <div id="myBar" class="w3-progressbar w3-deep-purple" style="width:0%">
+                      <div id="demo" class="w3-container w3-text-white">0%</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="w3-row w3-padding-8">
+                  <p class="w3-text-purple w3-right">สำหรับนิสิตที่ต้องการรักษาสถานภาพนิสิตให้ Add รหัสวิชา 00000000</p>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+
+          <div class="w3-row w3-padding-8"></div>
+
+
+
+        </div>
+      </main>
+
+      <footer class="w3-container w3-green w3-center ">
+        <p class="w3-margin-top">ติดต่อสอบถาม สำนักทะเบียนและประมวลผล โทร: 02-9428200 ต่อ 618035-42 Fax: 02-1180111</p>
+      </footer>
+
+
+  </body>
+</html>
